@@ -1,5 +1,6 @@
 package com.example.codeclan.bookingSystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.boot.autoconfigure.quartz.QuartzTransactionManager;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ public class Customer {
     @Column(name = "age")
     private int age;
 
+    @JsonIgnoreProperties({"customers"})
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 

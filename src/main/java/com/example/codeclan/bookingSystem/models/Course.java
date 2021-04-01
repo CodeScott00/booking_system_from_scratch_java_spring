@@ -1,5 +1,6 @@
 package com.example.codeclan.bookingSystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class Course {
     @Column(name = "rating")
     private int rating;
 
-
+    @JsonIgnoreProperties({"courses"})
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
